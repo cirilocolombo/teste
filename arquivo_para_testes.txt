@@ -1,8 +1,9 @@
 git config --global user.name "YOUR NAME"
 git config --global user.email "YOUR EMAIL ADDRESS"
-
 git clone https://github.com/<username>/site.git
-
 git status
-
 git add arquivo_para_testes.txt
+git commit -m "Criação de um arquivo para testes"
+git push
+git commit --amend
+git pull
