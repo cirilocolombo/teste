@@ -1,3 +1,5 @@
+﻿comentário no início
+
 git config --global user.name "YOUR NAME"
 git config --global user.email "YOUR EMAIL ADDRESS"
 git clone https://github.com/<username>/site.git
@@ -7,3 +9,5 @@ git commit -m "Criação de um arquivo para testes"
 git push
 git commit --amend
 git pull
+
+Teste com 2 branchs
