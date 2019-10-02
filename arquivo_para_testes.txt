@@ -11,5 +11,3 @@ git commit --amend
 git pull
 git checkout nome_branch
 git merge nome_branch_origem
-
-Teste com 2 branchs
