@@ -6,6 +6,9 @@ Versão Necessária: banco, informada por mim
 Versão Atual: banco, atualizada pelo software
 Versão do aplicativo: fixo no aplicativo, quando versão do aplicativo for menor que a Versão Atual, pedir para atualizar
 
+CRM_CONTROLE_ACESSO (I_CONTROLE_ACESSO, I_LICENCA, I_USUARIO, TIPO (0-cliente default, 1-peixepanda), ENTRADA, SAIDA)
+-Criar uma guia na tela de testes para ver os acessos
+
 Data I: 14/08/2006 --> 15/09/2017
 Intervalo: 01/08/2018 até 31/08/2018
 AND (data_calculada <= DI.data_final OR DI.data_final IS NULL)
