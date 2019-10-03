@@ -1,10 +1,10 @@
+﻿-Controlar versão (git)
+-Salvar em XLS
+-Incluir forma de pagamento no relatório de despesas (todos os modelos)
+
 Versão Necessária: banco, informada por mim
 Versão Atual: banco, atualizada pelo software
 Versão do aplicativo: fixo no aplicativo, quando versão do aplicativo for menor que a Versão Atual, pedir para atualizar
-
-Lançar as datas importantes:
--Corte cabelo sábado 10:30
--Renovar domínio peixepanda (verificar vencimento no whois)
 
 Data I: 14/08/2006 --> 15/09/2017
 Intervalo: 01/08/2018 até 31/08/2018
