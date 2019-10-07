@@ -1,4 +1,9 @@
-﻿Retirar o "somente como leitura" do arquivo do target
+﻿SQLCA.DBParm="TimeOut=10"
+/etc/mysql/my.cnf ou my.ini
+wait_timeout = 28800
+interactive_timeout = 28800
+
+Retirar o "somente como leitura" do arquivo do target
 
 1-Controlar versão (git):
 Versão Necessária: banco, informada por mim
@@ -14,7 +19,9 @@ Utilizar esta nova tabela para saber quando o usuário acessou a w_geral e quand
 
 3-Incluir forma de pagamento no relatório de despesas (todos os modelos)
 
-4-Incluir data fim na data importante (Pessoas, Empresas e Grupos):
+4-Remover todas as conexões da tela de login (abertura), antes de tentar conectar, verificar se internet está ok
+
+5-Incluir data fim na data importante (Pessoas, Empresas e Grupos):
 Data I: 14/08/2006 --> 15/09/2017
 Intervalo: 01/08/2018 até 31/08/2018
 AND (data_calculada <= DI.data_final OR DI.data_final IS NULL)
@@ -25,3 +32,6 @@ Screenr (online)
 Animaker
 Stupeflix
 Biteable
+
+Código Git:
+https://github.com/brenordv/powerbuilder_webservice_poc
