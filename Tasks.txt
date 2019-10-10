@@ -16,6 +16,9 @@ Utilizar esta nova tabela para saber quando o usuário acessou a w_geral e quand
 *Criar uma guia na tela de testes para ver os acessos
 
 2-Salvar em XLS (Incluir a nova pbl, nova dll e nova imagem de menu no instalador)
+Usar o caminho completo no arquivo INI
+Criar um procedimento que copia a dw para uma ds (mesma syntax) e destrói o que começa com destacar_linhas e o sistema_licenciado
+--Iguala dataobject e faz rowscopy
 
 3-Incluir forma de pagamento no relatório de despesas (todos os modelos)
 
@@ -25,6 +28,13 @@ Utilizar esta nova tabela para saber quando o usuário acessou a w_geral e quand
 Data I: 14/08/2006 --> 15/09/2017
 Intervalo: 01/08/2018 até 31/08/2018
 AND (data_calculada <= DI.data_final OR DI.data_final IS NULL)
+
+6-Retirar o salvamento dos filtros dos relatórios do ini e incluir no BD:
+DW invisivel na w_emissao
+Retrieve no open
+Find na opção
+Load em cima do find, se achar usa o valor senão usa o padrão
+No close find pra dar update se achar, senão insertrow
 
 Ferramentas vídeo:
 Soapbox (extensão do chrome)
