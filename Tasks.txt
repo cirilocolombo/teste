@@ -3,22 +3,24 @@
 wait_timeout = 28800
 interactive_timeout = 28800
 
-Retirar o "somente como leitura" do arquivo do target
-
-1-Controlar versão (git):
+1-Controlar versão:
 Versão Necessária: banco, informada por mim
 Versão Atual: banco, atualizada pelo software
 Versão do aplicativo: fixo no aplicativo, quando versão do aplicativo for menor que a Versão Atual, pedir para atualizar
+Rever tela de atualização, comparar com o email enviado e fazer as devidas melhorias
+Remover colunas de versão do banco e coluna de último acesso
 
-CRM_CONTROLE_ACESSO (I_CONTROLE_ACESSO, I_LICENCA, I_USUARIO, TIPO (0-cliente default, 1-peixepanda), ENTRADA, SAIDA)
-Utilizar o campo atual de último acesso para saber quando o usuário acessou a tela de login
-Utilizar esta nova tabela para saber quando o usuário acessou a w_geral e quando fechou a mesma 
-*Criar uma guia na tela de testes para ver os acessos
+CRM_CONTROLE_ACESSO (I_CONTROLE_ACESSO, I_LICENCA, I_USUARIO, TIPO (0-cliente default, 1-peixepanda), ENTRADA (datetime), SAIDA (datetime))
+Utilizar esta nova tabela para saber quando o usuário acessou a w_geral e quando fechou a mesma (open e closequery w_geral)
+No Sobre, fazer um SELECT MAX SAIDA UNION MAX ENTRADA (I_CONTROLE_ACESSO <> atual) na tabela CRM_CONTROLE_ACESSO onde TIPO <> 1 e pegar a data mais recente entre as 2
+-Criar uma função em algum objeto instanciado na global para fazer isto of_get_ultimo_acesso()
+Quando acessar a tela w_geral, dar insert e guardar o I_CONTROLE_ACESSO, ao fechar dar update na SAIDA da chave guardada
+Criar uma guia na tela de testes para ver os acessos
+Obs.: No modo_desenvolvimento acessar pelo PB qualquer versão e gravar origem 1 no CRM_CONTROLE_ACESSO
 
 2-Salvar em XLS (Incluir a nova pbl, nova dll e nova imagem de menu no instalador)
 Usar o caminho completo no arquivo INI
 Criar um procedimento que copia a dw para uma ds (mesma syntax) e destrói o que começa com destacar_linhas e o sistema_licenciado
---Iguala dataobject e faz rowscopy
 
 3-Incluir forma de pagamento no relatório de despesas (todos os modelos)
 
@@ -30,6 +32,11 @@ Intervalo: 01/08/2018 até 31/08/2018
 AND (data_calculada <= DI.data_final OR DI.data_final IS NULL)
 
 6-Incluir o botão [+] na configuração e cadastro de usuário
+
+7-Importar dados da empresa do site da Receita (retorna JSON):
+https://www.receitaws.com.br/v1/cnpj/27056910000142
+
+8-Nos recibos, demonstrar o valor por extenso
 
 Ferramentas vídeo:
 Soapbox (extensão do chrome)
