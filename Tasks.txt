@@ -38,6 +38,12 @@ https://www.receitaws.com.br/v1/cnpj/27056910000142
 
 8-Nos recibos, demonstrar o valor por extenso
 
+9-Criar guia arquivos nas Pessoas e Empresas
+-Criar tabela CRM_PESSOA_ARQUIVO (I_LICENCA, I_PESSOA, I_ARQUIVO, NOME, CAMINHO), criar também a CRM_EMPRESA_ARQUIVO
+-No cadastro ter uma Grid com a listagem de nomes dos arquivos, ter os seguintes botões: Incluir, Excluir, Abrir arquivo, Visualizar arquivo (abrir outra tela só com o OLE e o botão fechar, esta tela deve ocupar a tela toda, tipo o relatório, porém não maximizado)
+-Ter um botão [...] ao lado da descrição (na grid) para abrir a tela de selecionar arquivo
+-Ao clicar sobre um arquivo que não existe mais e tentar Abrir ou Visualizar, emitir mensagem que o arquivo não existe e se deseja remover do cadastro
+
 Ferramentas vídeo:
 Soapbox (extensão do chrome)
 Screenr (online)
