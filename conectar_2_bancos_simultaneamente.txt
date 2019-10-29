@@ -1,0 +1,43 @@
+﻿transaction itr_horrpad
+
+ls_senha	  = '123'
+ls_usuario = 'user1'
+ls_source  = 'HorrPadOnline'
+
+itr_horrpad = create transaction
+
+ls_DbParm = "connectstring='DSN="+ls_source+";UID="+ls_usuario+";PWD="+ls_senha+";staticbind=0;disablebind = 1;AppName=HorrPAD,PBCatalogOwner='public',TableCriteria=',public',DelimitIdentifier='Yes',TrimSpaces='Yes',IdentifierQuoteChar='~"'"
+
+itr_horrpad.DBMS = "ODBC"
+itr_horrpad.AutoCommit = False
+itr_horrpad.dbparm = ls_DbParm
+
+Connect Using itr_horrpad;
+if itr_horrpad.sqlcode <> 0 then
+	select count(*) into :ll_aux from "Empresa" using itr_horrpad;
+	if IsNull(ll_aux) then ll_aux = 0	
+	if ll_aux <= 0 then	
+		return
+	end if
+end if
+
+lds_pedido_maximus = create uo_datastore
+
+lds_pedido_maximus.DataObject = 'd_sql_pedidovenda_situacao'
+lds_pedido_maximus.SetTransObject(itr_horrpad)
+lds_pedido_maximus.Retrieve()
+
+Disconnect Using itr_horrpad;
+
+insert into "RepresentanteCidade" ("codRepresentante", "nomCidade", "nomPais", "uf")
+select distinct "Representante"."codRepresentante", "Cidade"."nomCidade", 'BRASIL' as pais, "Cidade"."uf" 
+from "ClienteEndereco", "RepresentanteCliente", "Cidade", "Representante" 
+where "ClienteEndereco"."seq" = 1 and "ClienteEndereco"."xTipo" = '001' and 
+      "RepresentanteCliente"."codCliente" = "ClienteEndereco"."codCliente" and
+      "Cidade"."nomCidade" = "ClienteEndereco"."cidade" and "Cidade"."uf" = "ClienteEndereco"."UF" AND
+      "RepresentanteCliente"."codRepresentante" = "Representante"."codRepresentante" and "Representante"."xTipo" = 'R'
+using itr_horrpad;
+
+DELETE FROM "PedidoVendaItem" using itr_horrpad;
+
+Commit using itr_horrpad;
