@@ -18,10 +18,6 @@ Quando acessar a tela w_geral, dar insert e guardar o I_CONTROLE_ACESSO, ao fech
 Criar uma guia na tela de testes para ver os acessos
 Obs.: No modo_desenvolvimento acessar pelo PB qualquer versão e gravar origem 1 no CRM_CONTROLE_ACESSO
 
-2-Salvar em XLS (Incluir a nova pbl, nova dll e nova imagem de menu no instalador)
-Usar o caminho completo no arquivo INI
-Criar um procedimento que copia a dw para uma ds (mesma syntax) e destrói o que começa com destacar_linhas e o sistema_licenciado
-
 3-Incluir forma de pagamento no relatório de despesas (todos os modelos)
 
 4-Remover todas as conexões da tela de login (abertura), antes de tentar conectar, verificar se internet está ok
@@ -36,13 +32,12 @@ AND (data_calculada <= DI.data_final OR DI.data_final IS NULL)
 7-Importar dados da empresa do site da Receita (retorna JSON):
 https://www.receitaws.com.br/v1/cnpj/27056910000142
 
-8-Nos recibos, demonstrar o valor por extenso
-
 9-Criar guia arquivos nas Pessoas e Empresas
 -Criar tabela CRM_PESSOA_ARQUIVO (I_LICENCA, I_PESSOA, I_ARQUIVO, NOME, CAMINHO), criar também a CRM_EMPRESA_ARQUIVO
 -No cadastro ter uma Grid com a listagem de nomes dos arquivos, ter os seguintes botões: Incluir, Excluir, Abrir arquivo, Visualizar arquivo (abrir outra tela só com o OLE e o botão fechar, esta tela deve ocupar a tela toda, tipo o relatório, porém não maximizado)
 -Ter um botão [...] ao lado da descrição (na grid) para abrir a tela de selecionar arquivo
 -Ao clicar sobre um arquivo que não existe mais e tentar Abrir ou Visualizar, emitir mensagem que o arquivo não existe e se deseja remover do cadastro
+-Incluir nova pbd no instalador (web.pbd)
 
 Ferramentas vídeo:
 Soapbox (extensão do chrome)
